@@ -174,11 +174,10 @@ function InitializeAfterWakeup() {
 	echo "[`date`] ${0}: This system is waking up from hibernate or suspend now."
 	
 	# load an kernel module (pt3_drv) & start mirakurun-server
-	mirakurun stop
-	StopRecpt1
+	docker stop mirakurun
 	modprobe -r pt3_drv
 	modprobe pt3_drv
-	mirakurun start
+	docker start mirakurun
 }
 
 # ------------------------------------------------------- #
